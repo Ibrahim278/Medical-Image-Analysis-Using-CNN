@@ -1,0 +1,55 @@
+  
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <!--link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"-->
+
+    <title>{% block title %}{% endblock %}</title>
+
+<script type='text/javascript'>
+function preview_image(event) 
+{
+ var reader = new FileReader();
+ reader.onload = function()
+ {
+  var output = document.getElementById('output_image');
+  output.src = reader.result;
+ }
+ reader.readAsDataURL(event.target.files[0]);
+}
+</script>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      <h1>Convolutional Neural Network for Medical Images Diagnosis</h1>
+      <hr>
+
+      <form action="/" method="POST" enctype="multipart/form-data">
+
+        <div class="form-group">
+          
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" name="image" id="image" >
+            <label class="custom-file-label" onchange="preview_image(event)" for="image">Select image...</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Upload</button>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+ </head>
+  <body>
